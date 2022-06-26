@@ -8,6 +8,9 @@ import '@popperjs/core'; // Edit here
 import 'bootstrap/dist/js/bootstrap.bundle';
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// Scss
+import "./scss/app.scss";
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -1,6 +1,6 @@
 <template>
   
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#"><img alt="digitechsltd logo" src="../assets/logo.svg"/></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,31 +9,37 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">About Us</a>
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Services</a>
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Clients</a>
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Portfolio</a>
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Techs.</a>
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>                                                  
           <li class="nav-item">
-            <a class="nav-link active" href="#">Team</a>
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Contact Us</a>
-          </li>                                      
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>                                        
         </ul>
-        <ul class="me-auto mb-2 mb-lg-0 d-flex">
+        <ul class="me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" href="#"><img src="../assets/facebook.svg" alt="facebook"></a>
           </li>  
@@ -57,9 +63,5 @@ export default {
 .navbar-nav .nav-link {
     font-size: 20px;
     min-width: 100px;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
 }
 </style>

@@ -18,7 +18,7 @@ export default {
 <style lang="css">
 @import 'css/app.css';
 #app {
-  font-family: 'Dubai Regular';
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

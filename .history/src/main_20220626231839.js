@@ -6,7 +6,6 @@ import 'jquery';
 import "bootstrap";
 import '@popperjs/core'; // Edit here
 import 'bootstrap/dist/js/bootstrap.bundle';
-import "bootstrap/dist/css/bootstrap.min.css";
 
 Vue.config.productionTip = false
 

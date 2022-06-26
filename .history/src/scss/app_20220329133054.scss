@@ -1,0 +1,67 @@
+/*=====
+Sass structure
+=====*/
+// Structure information:
+// Auth: Mohamed Omar mubark
+// Email: mohamed.omar.freelancer@gmail.com
+
+/* Start structure
+    font
+        import fonts
+    helpers
+        variables
+        reset
+        rtl-style
+    classes
+        display
+        color
+        background
+        margin
+        padding
+        text
+    components
+        form
+        modal
+    layouts
+        header
+        dashboard section heading
+        pagination
+End Structure*/
+
+/*=====
+font
+=====*/
+// english
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+// arabic
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+/*=====
+helpers
+=====*/
+@import "./helpers/variables";
+@import "./helpers/reset";
+@import "./helpers/rtl-style";
+/*=====
+classes
+=====*/
+@import "./classes/display";
+@import "./classes/color";
+@import "./classes/background";
+@import "./classes/margin";
+@import "./classes/padding";
+@import "./classes/text";
+/*=====
+components
+=====*/
+@import "./components/form";
+@import "./components/modal";
+@import "./components/button";
+@import "./components/heading";
+/*=====
+layouts
+=====*/
+@import "./layouts/dashboard-section-heading";
+@import "./layouts/pagination";
+
+// vue-snotify
+@import "../../node_modules/vue-snotify/styles/material.css";
