@@ -8,6 +8,13 @@ import '@popperjs/core'; // Edit here
 import 'bootstrap/dist/js/bootstrap.bundle';
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import VueWow from 'vue-wow'
+Vue.use(VueWow)
+ 
+import VAnimateCss from 'v-animate-css';
+Vue.use(VAnimateCss);
+
+
 Vue.config.productionTip = false
 
 new Vue({

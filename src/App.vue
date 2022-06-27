@@ -1,16 +1,28 @@
 <template>
   <div id="app">
-    <Header />
+    <Header></Header>
+    <BlockHero></BlockHero>
+    <BlockAbout></BlockAbout>
+    <BlockServices></BlockServices>
+    <BlockClients></BlockClients>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
+import BlockHero from './components/BlockHero.vue'
+import BlockAbout from './components/BlockAbout.vue'
+import BlockServices from './components/BlockServices.vue'
+import BlockClients from './components/BlockClients.vue'
 
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    BlockHero,
+    BlockAbout,
+    BlockServices,
+    BlockClients
   }
 }
 </script>

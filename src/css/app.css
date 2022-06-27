@@ -3,32 +3,115 @@ css Style
 =====*/
 @font-face {
   font-family: 'Dubai Regular';
-  font-style: normal;
-  font-weight: normal;
   src: local('Dubai Regular'), url('../../public/fonts/Dubai-Regular.woff') format('woff');
 }
 
 
 @font-face {
   font-family: 'Dubai Light';
-  font-style: normal;
-  font-weight: normal;
   src: local('Dubai Light'), url('../../public/fonts/Dubai-Light.woff') format('woff');
 }
 
 
 @font-face {
   font-family: 'Dubai Medium';
-  font-style: normal;
-  font-weight: normal;
   src: local('Dubai Medium'), url('../../public/fonts/Dubai-Medium.woff') format('woff');
 }
 
 
 @font-face {
   font-family: 'Dubai Bold';
-  font-style: normal;
-  font-weight: normal;
   src: local('Dubai Bold'), url('../../public/fonts/Dubai-Bold.woff') format('woff');
 }
 
+.btn {
+  font-family: 'Dubai Regular';
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  line-height: 30px !important;
+  border-radius: 0 !important;
+}
+
+.btn-top {
+  position: fixed;
+  z-index: 1030;
+  bottom: 70px;
+  right: 95px;
+  left: auto;
+}
+
+.navbar-dark .navbar-nav li.nav-item:hover {
+  border-top: 2px solid #FFFFFF;
+}
+
+.navbar-dark .navbar-nav li.nav-item .nav-link {
+  padding-left: 0 !important;
+  text-align: left;
+}
+
+.navbar-dark .navbar-nav {
+  margin-left: 30px;
+}
+
+.text-color-black {
+  color: #000;
+}
+
+.text-color-gray {
+  color: #8A8A8A;
+}
+
+.text-color-light {
+  color: #FFFFFF78;
+}
+
+.font-size-tiny {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.font-size-small {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 34px;
+}
+
+.font-size-medium {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 41px;
+}
+
+.font-size-large {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 68px;
+}
+
+section.page {
+  padding: 65px 0 170px;
+}
+
+.counter .number {
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 118px;
+}
+
+.font-size-medium-bold {
+  font-family: 'Dubai Bold';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 37px;
+}
+
+.bg-dark {
+  background-color: #13161E !important;
+}

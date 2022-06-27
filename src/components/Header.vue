@@ -9,36 +9,36 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link" v-animate-css.hover="'flipInY'" href="#top">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">About Us</a>
+            <a class="nav-link" v-animate-css.hover="'flipInY'" href="#about">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Services</a>
+            <a class="nav-link" v-animate-css.hover="'flipInY'" href="#services">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Clients</a>
+            <a class="nav-link" v-animate-css.hover="'flipInY'" href="#clients">Clients</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Portfolio</a>
+            <a class="nav-link" v-animate-css.hover="'flipInY'" href="#portfolio">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Techs.</a>
+            <a class="nav-link" v-animate-css.hover="'flipInY'" href="#techs">Techs.</a>
           </li>                                                  
           <li class="nav-item">
-            <a class="nav-link active" href="#">Team</a>
+            <a class="nav-link" v-animate-css.hover="'flipInY'" href="#team">Team</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Contact Us</a>
+            <a class="nav-link" v-animate-css.hover="'flipInY'" href="#contact">Contact Us</a>
           </li>                                      
         </ul>
         <ul class="me-auto mb-2 mb-lg-0 d-flex">
           <li class="nav-item">
-            <a class="nav-link" href="#"><img src="../assets/facebook.svg" alt="facebook"></a>
+            <a class="nav-link" href="#" v-animate-css.hover="'rotateIn'"><img src="../assets/facebook.svg" alt="facebook"></a>
           </li>  
           <li class="nav-item">
-            <a class="nav-link" href="#"><img src="../assets/instagram.svg" alt="facebook"></a>
+            <a class="nav-link" href="#" v-animate-css.hover="'rotateIn'"><img src="../assets/instagram.svg" alt="facebook"></a>
           </li>  
         </ul>
       </div>
