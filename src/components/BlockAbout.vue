@@ -45,7 +45,7 @@
               :begin="false" 
               class="d-flex"
             >  
-            <p class="text-start font-size-medium ps-5">DigiTechs Solutions is A Software House based in Ismailia City. We specialize in Web design, Mobile App Design, Development, Branding, Identity & Social Media Management. The agency was created by group of experts, who was born in the Heart of Ismailia near the magical Suez Canal.</p>
+            <p class="text-start font-size-medium ps-lg-5">DigiTechs Solutions is A Software House based in Ismailia City. We specialize in Web design, Mobile App Design, Development, Branding, Identity & Social Media Management. The agency was created by group of experts, who was born in the Heart of Ismailia near the magical Suez Canal.</p>
             </u-animate>
             <u-animate
               name="fadeInUp"
@@ -57,7 +57,7 @@
               :begin="false" 
               class="d-flex"
             >  
-            <a href="#" class="btn btn-outline-dark mt-5" v-animate-css.click="animationRequest">Company Profile</a>
+            <a href="#portfolio" class="btn btn-outline-dark mt-5" v-animate-css.click="animationRequest">Company Profile</a>
             </u-animate>
           </u-animate-container>   
 

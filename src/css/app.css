@@ -115,3 +115,79 @@ section.page {
 .bg-dark {
   background-color: #13161E !important;
 }
+
+:root {
+  background: #212529;
+}
+
+@media (max-width: 1199px) {
+  .navbar-dark .navbar-nav li.nav-item .nav-link {
+    font-size: 16px;
+    min-width: 1px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 991px) {
+  .bg-dark {
+    background: #080808 !important;
+    position: relative !important;
+  }
+
+  .page .vh-100 {
+    height: auto !important;
+  }
+
+  section#top h2 {
+    text-align: center !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 24px !important;
+    line-height: 41px !important;
+  }
+
+  section#top {
+    height: auto !important;
+  }
+
+  section.page {
+    padding-bottom: 70px;
+  }  
+
+  .d-flex {
+    justify-content: center;
+  }
+
+  .page .text-start {
+    text-align: center !important;
+  }
+
+  .slider-clients .slide-item {
+    padding: 20px;
+    flex-flow: row;
+    height: auto;
+  } 
+
+  .owl-carousel .owl-item {
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    display: flex;
+  }
+
+  .counter .number {
+    font-size: 25px;
+  }
+
+  .counter span {
+    font-size: 11px;
+  }
+
+  section.logos .col-logos {
+    flex: 0 0 25%;
+  }  
+
+  html, body {
+    overflow-x: hidden;
+  }  
+}

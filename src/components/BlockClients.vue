@@ -44,11 +44,11 @@
               :begin="false" 
               class="d-flex"
             >  
-            <p class="text-start font-size-medium ps-5">We are a growing company but already have a great experience and helped many clients run their business successfully.</p>
+            <p class="text-start font-size-medium ps-lg-5">We are a growing company but already have a great experience and helped many clients run their business successfully.</p>
             </u-animate>
           </u-animate-container>   
 
-          <div class="slider col-12">
+          <div class="slider-clients col-12" v-if="isDisktop">
             <carousel :autoplay="true" :dots="false">
                 <div class="slide-item">
                   <img src="../assets/folder/slides/slide-4.png">
@@ -73,6 +73,29 @@
                 <div class="slide-item">
                   <img src="../assets/folder/slides/slide-5.png">
                   <img src="../assets/folder/slides/slide-3.png">
+                </div>                                            
+            </carousel>
+          </div>
+
+          <div class="slider-clients col-12" v-if="isMobile">
+            <carousel :autoplay="true" :dots="true" :center="true" :loop="true" :items="2">
+                <div class="slide-item">
+                  <img src="../assets/folder/slides/slide-2.png">
+                </div>
+                <div class="slide-item">
+                  <img src="../assets/folder/slides/slide-1.png">
+                </div> 
+                <div class="slide-item">
+                  <img src="../assets/folder/slides/slide-3.png">
+                </div> 
+                <div class="slide-item">
+                  <img src="../assets/folder/slides/slide-4.png">
+                </div>
+                <div class="slide-item">
+                  <img src="../assets/folder/slides/slide-6.png">              
+                </div> 
+                <div class="slide-item">
+                  <img src="../assets/folder/slides/slide-5.png">
                 </div>                                            
             </carousel>
           </div>
@@ -120,11 +143,19 @@ export default {
         classes: 'slideOutUp',
         delay: 100,
         duration: 1000
-      }
+      },
+      isMobile: true,
+      isDisktop: true,
     }
   },
   mounted() {
+    if(window.innerWidth > 991) {
+      this.isMobile = false;
+    }
 
+    if(window.innerWidth < 992) {
+      this.isDisktop = false;
+    }
   },
   methods: {
     
@@ -134,7 +165,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-.slider .slide-item {
+.slider-clients .slide-item {
     padding: 70px;
     display: flex;
     justify-content: space-around;
@@ -142,6 +173,11 @@ export default {
     flex-flow: column;
     height: 400px;
 }
+
+.slider-clients .slide-item img {
+  max-width: 100%;
+}
+
 .owl-theme .owl-nav {
     justify-content: space-between;
     display: flex;
@@ -160,10 +196,12 @@ export default {
 
 .owl-carousel .owl-nav .owl-prev {
   background-image: url('../assets/folder/arrow_back_left.svg') !important;
+  margin-left: -60px;
 }
 
 .owl-carousel .owl-nav .owl-next {
   background-image: url('../assets/folder/arrow_back_right.svg') !important;
+  margin-right: -60px;
 }
 
 .owl-theme .owl-nav [class*='owl-']:hover, .owl-theme .owl-nav [class*='owl-']:active {

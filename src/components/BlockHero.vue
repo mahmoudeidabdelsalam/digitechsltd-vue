@@ -28,7 +28,7 @@
               :begin="false" 
               class="d-flex"
             >  
-            <a href="#" class="btn btn-outline-light mt-5" v-animate-css.click="animationRequest">Request a Quote</a>
+            <a href="#contact" class="btn btn-outline-light mt-5" v-animate-css.click="animationRequest">Request a Quote</a>
             </u-animate>
           </u-animate-container>   
                  

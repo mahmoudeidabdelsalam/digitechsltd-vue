@@ -44,12 +44,12 @@
               :begin="false" 
               class="d-flex"
             >  
-            <p class="text-start font-size-medium mb-5 text-white ps-5">Our Services include Intelligent programming, Business Analysis, UI/UX Solutions, Website Development, Mobile Development and Social Media Management for your business.</p>
+            <p class="text-start font-size-medium mb-5 text-white ps-lg-5">Our Services include Intelligent programming, Business Analysis, UI/UX Solutions, Website Development, Mobile Development and Social Media Management for your business.</p>
             </u-animate>
           </u-animate-container>   
 
-          <div class="counter d-flex">
-            <div class="col-md-4">
+          <div class="counter d-flex flex-wrap justify-content-center">
+            <div class="col-md-4 col-6">
               <h4 class="font-size-medium-bold text-white text-start mb-3">STRATEGY</h4>
               <ul class="list-unstyled p-0 text-start">
                 <li class="font-size-tiny text-white">Digital Strategy</li>
@@ -60,7 +60,7 @@
                 <li class="font-size-tiny text-white">Digital Strategy</li>
               </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-6">
               <h4 class="font-size-medium-bold text-white text-start mb-3">CREATIVE & DESIGN</h4>
               <ul class="list-unstyled p-0 text-start">
                 <li class="font-size-tiny text-white">User Experience</li>
@@ -71,7 +71,7 @@
                 <li class="font-size-tiny text-white">Social Media Designs</li>
               </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-6">
               <h4 class="font-size-medium-bold text-white text-start mb-3">DEVELOPMENT</h4>
               <ul class="list-unstyled p-0 text-start">
                 <li class="font-size-tiny text-white">Web development</li>

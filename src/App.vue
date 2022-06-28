@@ -5,6 +5,11 @@
     <BlockAbout></BlockAbout>
     <BlockServices></BlockServices>
     <BlockClients></BlockClients>
+    <BlockPortfolio></BlockPortfolio>
+    <BlockTechs></BlockTechs>
+    <BlockTeam></BlockTeam>
+    <BlockContact></BlockContact>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -14,6 +19,11 @@ import BlockHero from './components/BlockHero.vue'
 import BlockAbout from './components/BlockAbout.vue'
 import BlockServices from './components/BlockServices.vue'
 import BlockClients from './components/BlockClients.vue'
+import BlockPortfolio from './components/BlockPortfolio.vue'
+import BlockTechs from './components/BlockTechs.vue'
+import BlockTeam from './components/BlockTeam.vue'
+import Footer from './components/Footer.vue'
+import BlockContact from './components/BlockContact.vue'
 
 export default {
   name: 'App',
@@ -22,7 +32,12 @@ export default {
     BlockHero,
     BlockAbout,
     BlockServices,
-    BlockClients
+    BlockClients,
+    BlockPortfolio,
+    BlockTechs,
+    BlockTeam,
+    BlockContact,
+    Footer
   }
 }
 </script>
