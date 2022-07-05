@@ -98,7 +98,7 @@ export default {
 }
 
 .slider-portfolio .vueperslide__content-wrapper {
-    background: #212529;
+    background: #14161e;
     height: 120px !important;
     align-items: start !important;
     position: absolute !important;
