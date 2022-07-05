@@ -14,7 +14,7 @@
               :begin="false" 
             >          
               <h3 class="font-size-tiny text-color-gray text-nowrap">
-                TECHNOLOGIES
+                {{technologies.small_headline_technology}}
               </h3>
             </u-animate>
           </u-animate-container>    
@@ -30,10 +30,7 @@
               animateClass="animated"
               :begin="false" 
             >          
-              <h2 class="font-size-large text-color-black text-start text-uppercase">
-                TECHNOLOGY IS AT THE HEART <br>
-                OF EVERYTHING WE DO
-              </h2>
+              <h2 class="font-size-large text-color-black text-start text-uppercase" v-html="technologies.headline_technology"></h2>
             </u-animate>
             <u-animate
               name="fadeInUp"
@@ -45,7 +42,7 @@
               :begin="false" 
               class="d-flex"
             >  
-            <p class="text-start font-size-medium ps-lg-5">DigiTechs Solutions uses the latest technologies to help our client to achieve their goals, reduce financial stress, and increase their business using our intelligent solutions.</p>
+            <p class="text-start font-size-medium ps-lg-5" v-html="technologies.content_technology"></p>
             </u-animate>
           </u-animate-container>   
 
@@ -53,159 +50,17 @@
               <u-animate
                 name="fadeInUp"
                 delay="0s"
-                duration="1s"
+                duration=".3s"
                 :iteration="1"
                 :offset="0"
                 animateClass="animated"
                 :begin="false" 
                 class="col-logos"
+                v-for="(logo, i) in technologies.logos_technology" :key="i"
               > 
-              <img src="../assets/folder/slides/logo-1.svg"> 
-              <p>Node js</p>
-              </u-animate>
-              <u-animate
-                name="fadeInUp"
-                delay="0s"
-                duration="1s"
-                :iteration="1"
-                :offset="0"
-                animateClass="animated"
-                :begin="false" 
-                class="col-logos"
-              > 
-              <img src="../assets/folder/slides/logo-2.svg">
-              <p>Angular</p>
-              </u-animate>
-              <u-animate
-                name="fadeInUp"
-                delay="0s"
-                duration="1s"
-                :iteration="1"
-                :offset="0"
-                animateClass="animated"
-                :begin="false" 
-                class="col-logos"
-              > 
-              <img src="../assets/folder/slides/logo-3.svg">
-              <p>Python</p>
-              </u-animate>
-              <u-animate
-                name="fadeInUp"
-                delay="0s"
-                duration="1s"
-                :iteration="1"
-                :offset="0"
-                animateClass="animated"
-                :begin="false" 
-                class="col-logos"
-              > 
-              <img src="../assets/folder/slides/logo-4.svg">
-              <p>Laravel</p>
-              </u-animate>
-              <u-animate
-                name="fadeInUp"
-                delay="0s"
-                duration="1s"
-                :iteration="1"
-                :offset="0"
-                animateClass="animated"
-                :begin="false" 
-                class="col-logos"
-              > 
-              <img src="../assets/folder/slides/logo-5.svg">
-              <p>Figma</p>
-              </u-animate>
-              <u-animate
-                name="fadeInUp"
-                delay="0s"
-                duration="1s"
-                :iteration="1"
-                :offset="0"
-                animateClass="animated"
-                :begin="false" 
-                class="col-logos"
-              > 
-              <img src="../assets/folder/slides/logo-6.svg">
-              <p>MySQL</p>
-              </u-animate>
-              <u-animate
-                name="fadeInUp"
-                delay="0s"
-                duration="1s"
-                :iteration="1"
-                :offset="0"
-                animateClass="animated"
-                :begin="false" 
-                class="col-logos"
-              > 
-              <img src="../assets/folder/slides/logo-7.svg">
-              <p>jQuery</p>
-              </u-animate>
-              <u-animate
-                name="fadeInUp"
-                delay="0s"
-                duration="1s"
-                :iteration="1"
-                :offset="0"
-                animateClass="animated"
-                :begin="false" 
-                class="col-logos"
-              > 
-              <img src="../assets/folder/slides/logo-8.svg">
-              <p>Bootstrap</p>
-              </u-animate>
-              <u-animate
-                name="fadeInUp"
-                delay="0s"
-                duration="1s"
-                :iteration="1"
-                :offset="0"
-                animateClass="animated"
-                :begin="false" 
-                class="col-logos"
-              > 
-              <img src="../assets/folder/slides/logo-9.svg">
-              <p>React</p>
-              </u-animate>
-              <u-animate
-                name="fadeInUp"
-                delay="0s"
-                duration="1s"
-                :iteration="1"
-                :offset="0"
-                animateClass="animated"
-                :begin="false" 
-                class="col-logos"
-              > 
-              <img src="../assets/folder/slides/logo-10.svg">
-              <p>WordPress</p>
-              </u-animate>
-              <u-animate
-                name="fadeInUp"
-                delay="0s"
-                duration="1s"
-                :iteration="1"
-                :offset="0"
-                animateClass="animated"
-                :begin="false" 
-                class="col-logos"
-              > 
-              <img src="../assets/folder/slides/logo-11.svg">
-              <p>iOS</p>
-              </u-animate>
-              <u-animate
-                name="fadeInUp"
-                delay="0s"
-                duration="1s"
-                :iteration="1"
-                :offset="0"
-                animateClass="animated"
-                :begin="false" 
-                class="col-logos"
-              > 
-              <img src="../assets/folder/slides/logo-12.svg">
-              <p>Android</p>
-              </u-animate>                                                                                                                                                                     
+              <img :src="logo.logo_technology"> 
+              <p>{{ logo.name_technology }}</p>
+              </u-animate>                                                                                                                                                   
             </u-animate-container>  
         </div>
       </div>
@@ -217,18 +72,26 @@
 import {UAnimateContainer, UAnimate} from 'vue-wow'
 
 export default {
-  name: 'BlockClients',
+  name: 'BlockTech',
   components: {
     UAnimateContainer,
     UAnimate,
   },
   data() {
     return {
-
+      technologies: {
+        small_headline_technology:"",
+        headline_technology:"",
+        content_technology:"",
+      }
     }
   },
   mounted() {
-
+    this.axios.get(`https://api.digitechsltd.com/wp-json/wp/api/page/vue`).then((response) => {
+      this.technologies = response.data.data;
+    }).catch((error) => {
+      console.log(error);
+    });
   },
   methods: {
     

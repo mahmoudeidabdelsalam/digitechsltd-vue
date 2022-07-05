@@ -1,8 +1,8 @@
 <template>
   
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-header">
     <div class="container">
-      <a class="navbar-brand" href="#"><img alt="digitechsltd logo" src="../assets/logo.svg"/></a>
+      <a class="navbar-brand" href="#"><img alt="digitechsltd logo" :src="header.logo_vue"/></a>
      
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-none d-lg-flex d-xl-flex">
         <li class="nav-item">
@@ -32,10 +32,10 @@
       </ul>
       <ul class="me-lg-auto mb-2 mb-lg-0 d-flex">
         <li class="nav-item">
-          <a class="nav-link" href="#" v-animate-css.hover="'rotateIn'"><img src="../assets/facebook.svg" alt="facebook"></a>
+          <a class="nav-link" :href="header.link_facebook" target="_blank" v-animate-css.hover="'rotateIn'"><img src="../assets/facebook.svg" alt="facebook"></a>
         </li>  
         <li class="nav-item">
-          <a class="nav-link" href="#" v-animate-css.hover="'rotateIn'"><img src="../assets/instagram.svg" alt="facebook"></a>
+          <a class="nav-link" :href="header.link_instagram" target="_blank" v-animate-css.hover="'rotateIn'"><img src="../assets/instagram.svg" alt="facebook"></a>
         </li>  
       </ul>
 
@@ -45,7 +45,24 @@
 
 <script>
 export default {
-  name: 'HeaderNav'
+  name: 'HeaderNav',
+  data () {
+    return {
+      header: {
+        logo_vue: null,
+        link_facebook: null,
+        link_instagram: null
+      }
+    }
+  },
+
+  mounted() {
+    this.axios.get(`https://api.digitechsltd.com/wp-json/wp/api/page/vue`).then((response) => {
+      this.header = response.data.data;
+    }).catch((error) => {
+      console.log(error);
+    });
+  },
 }
 </script>
 
@@ -58,5 +75,12 @@ export default {
 ul {
   list-style-type: none;
   padding: 0;
+}
+.fixed-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    background: transparent !important;
 }
 </style>

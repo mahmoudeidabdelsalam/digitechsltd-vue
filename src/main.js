@@ -14,6 +14,10 @@ Vue.use(VueWow)
 import VAnimateCss from 'v-animate-css';
 Vue.use(VAnimateCss);
 
+// Axios
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false
 

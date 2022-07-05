@@ -14,7 +14,7 @@
               :begin="false" 
             >          
               <h3 class="font-size-tiny text-color-gray text-nowrap">
-                WHO WE WORKED WITH
+                {{ clients.small_headline_clients }}
               </h3>
             </u-animate>
           </u-animate-container>    
@@ -31,7 +31,7 @@
               :begin="false" 
             >          
               <h2 class="font-size-large text-color-black text-start text-uppercase">
-                Clients
+                {{ clients.headline_clients }}
               </h2>
             </u-animate>
             <u-animate
@@ -44,61 +44,19 @@
               :begin="false" 
               class="d-flex"
             >  
-            <p class="text-start font-size-medium ps-lg-5">We are a growing company but already have a great experience and helped many clients run their business successfully.</p>
+            <p class="text-start font-size-medium ps-lg-5" v-html="clients.content_clients"></p>
             </u-animate>
           </u-animate-container>   
 
-          <div class="slider-clients col-12" v-if="isDisktop">
-            <carousel :autoplay="true" :dots="false">
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-4.png">
-                  <img src="../assets/folder/slides/slide-2.png">
-                </div>
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-1.png">
-                  <img src="../assets/folder/slides/slide-6.png">              
-                </div> 
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-5.png">
-                  <img src="../assets/folder/slides/slide-3.png">
-                </div> 
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-4.png">
-                  <img src="../assets/folder/slides/slide-2.png">
-                </div>
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-1.png">
-                  <img src="../assets/folder/slides/slide-6.png">              
-                </div> 
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-5.png">
-                  <img src="../assets/folder/slides/slide-3.png">
-                </div>                                            
-            </carousel>
-          </div>
-
-          <div class="slider-clients col-12" v-if="isMobile">
-            <carousel :autoplay="true" :dots="true" :center="true" :loop="true" :items="2">
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-2.png">
-                </div>
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-1.png">
-                </div> 
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-3.png">
-                </div> 
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-4.png">
-                </div>
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-6.png">              
-                </div> 
-                <div class="slide-item">
-                  <img src="../assets/folder/slides/slide-5.png">
-                </div>                                            
-            </carousel>
-          </div>
+          <vueper-slides
+            class="no-shadow slide-cilents"
+            :bullets="false"
+            :visible-slides="4"
+            :gap="1"
+            :dragging-distance="200"
+            :breakpoints="{ 800: { visibleSlides: 2, bullets: true } }">
+            <vueper-slide v-for="(slide, i) in clients.logos_clients" :key="i" :image="slide.logo" />
+          </vueper-slides>
 
           <u-animate-container>
             <u-animate
@@ -123,14 +81,16 @@
 
 <script>
 import {UAnimateContainer, UAnimate} from 'vue-wow'
-import carousel from 'vue-owl-carousel2'
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 
 export default {
   name: 'BlockClients',
   components: {
     UAnimateContainer,
     UAnimate,
-    carousel
+    VueperSlides, 
+    VueperSlide
   },
   data() {
     return {
@@ -144,17 +104,30 @@ export default {
         delay: 100,
         duration: 1000
       },
-      isMobile: true,
-      isDisktop: true,
+      isMobile: false,
+      isDisktop: false,
+      clients: {
+        small_headline_clients:"",
+        headline_clients:"",
+        content_clients:"",
+        link_company_profile:"",
+        logos_clients: []        
+      }
     }
   },
   mounted() {
-    if(window.innerWidth > 991) {
-      this.isMobile = false;
-    }
+    this.axios.get(`https://api.digitechsltd.com/wp-json/wp/api/page/vue`).then((response) => {
+      this.clients = response.data.data;
+    }).catch((error) => {
+      console.log(error);
+    });
 
     if(window.innerWidth < 992) {
-      this.isDisktop = false;
+      this.isMobile = true;
+    }
+
+    if(window.innerWidth > 991) {
+      this.isDisktop = true;
     }
   },
   methods: {
@@ -207,5 +180,15 @@ export default {
 .owl-theme .owl-nav [class*='owl-']:hover, .owl-theme .owl-nav [class*='owl-']:active {
     background: transparent;
     transform: scale(0.9);
+}
+
+.slide-cilents .vueperslide {
+    background-size: 140px;
+    background-repeat: no-repeat;
+    filter: brightness(0.1);
+}
+
+.slide-cilents .vueperslide:hover {
+    filter: brightness(1);
 }
 </style>

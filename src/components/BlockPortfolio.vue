@@ -14,7 +14,7 @@
               :begin="false" 
             >          
               <h3 class="font-size-tiny text-color-gray">
-               Portfolio
+               {{portfolio.small_headline_projects}}
               </h3>
             </u-animate>
           </u-animate-container>    
@@ -31,130 +31,24 @@
               :begin="false" 
             >          
               <h2 class="font-size-large text-white text-start">
-                OUR PROJECTS
+                {{portfolio.headline_projects}}
               </h2>
             </u-animate>
           </u-animate-container>
         </div>
           
         <div class="slider-portfolio col-12">
-          <carousel :autoplay="true" :dots="false" :center="true" :loop="true" :items="3" v-if="isDisktop">
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">01</div>
-                <img src="../assets/folder/slides/slide-7.png">
-              </div>
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">02</div>                  
-                <img src="../assets/folder/slides/slide-8.png">          
-              </div> 
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">03</div>                  
-                <img src="../assets/folder/slides/slide-9.png">
-              </div> 
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">04</div>                  
-                <img src="../assets/folder/slides/slide-10.png">
-              </div>
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">05</div>                  
-                <img src="../assets/folder/slides/slide-9.png">            
-              </div> 
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">06</div>                  
-                <img src="../assets/folder/slides/slide-8.png">
-              </div>    
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">07</div>                  
-                <img src="../assets/folder/slides/slide-7.png">
-              </div>                                            
-          </carousel>
-
-          <carousel :autoplay="true" :dots="true" :loop="true" :items="1" v-if="isMobile">
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">01</div>
-                <img src="../assets/folder/slides/slide-7.png">
-              </div>
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">02</div>                  
-                <img src="../assets/folder/slides/slide-8.png">          
-              </div> 
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">03</div>                  
-                <img src="../assets/folder/slides/slide-9.png">
-              </div> 
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">04</div>                  
-                <img src="../assets/folder/slides/slide-10.png">
-              </div>
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">05</div>                  
-                <img src="../assets/folder/slides/slide-9.png">            
-              </div> 
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">06</div>                  
-                <img src="../assets/folder/slides/slide-8.png">
-              </div>    
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">DigiTechs</b> <br>
-                  <span class="text-white">Web Development</span>
-                </div>
-                <div class="slide-item__number">07</div>                  
-                <img src="../assets/folder/slides/slide-7.png">
-              </div>                                            
-          </carousel>
+          <vueper-slides
+            class="no-shadow"
+            :bullets="false"
+            :visible-slides="3"
+            :slide-ratio="1 / 3"
+            :gap="3"
+            :dragging-distance="70"
+            fixed-height="620px"
+            :breakpoints="{ 800: { visibleSlides: 1, bullets: true } }">
+            <vueper-slide v-for="(slide, i) in portfolio.list_projects" :key="i" :title="slide.name_of_project" :content="slide.technology_of_project" :image="slide.image_of_project" />
+          </vueper-slides>
         </div>  
 
       </div>
@@ -164,29 +58,32 @@
 
 <script>
 import {UAnimateContainer, UAnimate} from 'vue-wow'
-import carousel from 'vue-owl-carousel2'
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 
 export default {
   name: 'BlockPortfolio',
   components: {
     UAnimateContainer,
     UAnimate,
-    carousel
+    VueperSlides, 
+    VueperSlide    
   },
   data() {
     return {
-      isMobile: true,
-      isDisktop: true,
+      portfolio: {
+        small_headline_projects: "",
+        headline_projects:"",
+        list_projects: []
+      }      
     }
   },
   mounted() {
-    if(window.innerWidth > 991) {
-      this.isMobile = false;
-    }
-
-    if(window.innerWidth < 992) {
-      this.isDisktop = false;
-    }
+    this.axios.get(`https://api.digitechsltd.com/wp-json/wp/api/page/vue`).then((response) => {
+      this.portfolio = response.data.data;
+    }).catch((error) => {
+      console.log(error);
+    });
   },
  
   methods: {
@@ -196,41 +93,58 @@ export default {
 </script>
 
 <style>
-.slider-portfolio .slide-item {
-    padding: 35px;
+.slider-portfolio {
+    margin-top: 70px !important;
 }
 
-.slider-portfolio .slide-item__number {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 70px;
-    line-height: 118px;
+.slider-portfolio .vueperslide__content-wrapper {
+    background: #212529;
+    height: 120px !important;
+    align-items: start !important;
+    position: absolute !important;
+    top: -120px !important;
+    width: 100%;    
+}
+
+.slider-portfolio .vueperslide__content-wrapper .vueperslide__title {
+    text-align: left;
     color: #fff;
-    text-align: right;
-    margin-bottom: -60px;
-    margin-top: -45px;
-    position: relative;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 41px;
+    width: 200px;
+    border-bottom: 1px solid #ccc;
 }
 
-.slider-portfolio .center .slide-item {
-    margin-top: 140px !important;
+.slider-portfolio .vueperslide__content-wrapper .vueperslide__content {
+    text-align: left;
+    width: 100%;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+    color: rgba(255, 255, 255, 0.47);
 }
 
-.slider-portfolio .center .slide-item {
-    display: flex;
-    flex-flow: column;
+.slider-portfolio .vueperslide {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 500px !important;
+    margin-top: 120px !important;
 }
 
-.slider-portfolio .center .slide-item img {
-    order: 1;
+.slider-portfolio path {
+    color: #fff;
 }
 
-.slider-portfolio .center .slide-item * {
-    order: 2;
-}
+@media (min-width: 800px) {
+  .slider-portfolio .vueperslide--visible:nth-of-type(2n+2) {
+      margin-top: 60px !important;
+  }
 
-.slider-portfolio .center .slide-item .slide-item__number {
-    margin-bottom: 0;
-    margin-top: -120px;
+  .slider-portfolio .vueperslide--visible:nth-of-type(2n+2) .vueperslide__content-wrapper {
+      top: auto !important;
+      bottom: -90px;
+  }
 }
 </style>

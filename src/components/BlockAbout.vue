@@ -14,7 +14,7 @@
               :begin="false" 
             >          
               <h3 class="font-size-tiny text-color-gray">
-                WHO WE ARE ?
+                {{ about.small_headline_about_us }}
               </h3>
             </u-animate>
           </u-animate-container>    
@@ -30,10 +30,7 @@
               animateClass="animated"
               :begin="false" 
             >          
-              <h2 class="font-size-large text-color-black text-start">
-                NOT JUST ANOTHER <br/>
-                DIGITAL AGENCY
-              </h2>
+              <h2 class="font-size-large text-color-black text-start" v-html="about.headline_about_us"></h2>
             </u-animate>
             <u-animate
               name="fadeInUp"
@@ -45,7 +42,7 @@
               :begin="false" 
               class="d-flex"
             >  
-            <p class="text-start font-size-medium ps-lg-5">DigiTechs Solutions is A Software House based in Ismailia City. We specialize in Web design, Mobile App Design, Development, Branding, Identity & Social Media Management. The agency was created by group of experts, who was born in the Heart of Ismailia near the magical Suez Canal.</p>
+            <p class="text-start font-size-medium ps-lg-5" v-html="about.content_about_us"></p>
             </u-animate>
             <u-animate
               name="fadeInUp"
@@ -57,25 +54,29 @@
               :begin="false" 
               class="d-flex"
             >  
-            <a href="#portfolio" class="btn btn-outline-dark mt-5" v-animate-css.click="animationRequest">Company Profile</a>
+            <a :href="about.link_company_profile" target="_blank" download class="btn btn-outline-dark mt-5" v-animate-css.click="animationRequest">Company Profile</a>
             </u-animate>
           </u-animate-container>   
 
-          <div class="counter d-flex">
-            <div class="col-md-4">
-              <span class="number">+</span><span id="count1" class="display-4 number"></span>
-              <span class="d-block text-center w-100">Finished Projects</span>
+          <div class="counter w-100 mt-5">
+            <u-animate-container>
+            <u-animate
+              name="fadeInUp"
+              delay="0s"
+              duration="1s"
+              :iteration="1"
+              :offset="0"
+              animateClass="animated"
+              :begin="false" 
+              class="d-flex w-100 justify-content-between"
+            >  
+            <div class="col-counter" v-for="counter in about.counter_company" :key="counter.number_counter">
+              <span class="number">+</span><span class="display-4 number">{{ counter.number_counter }}</span>
+              <span class="d-block text-center w-100">{{ counter.text_counter }}</span>
             </div>
-            <div class="col-md-4">
-              <span class="number">+</span><span id="count2" class="display-4 number"></span>
-              <span class="d-block text-center w-100">Lines of Code</span>
-            </div>
-            <div class="col-md-4">
-              <span class="number">+</span><span id="count3" class="display-4 number"></span>
-              <span class="d-block text-center w-100">Happy Clients</span>
-            </div>
+            </u-animate>
+           </u-animate-container>
           </div>
-
         </div>
       </div>
     </div>
@@ -102,11 +103,23 @@ export default {
         classes: 'slideOutUp',
         delay: 100,
         duration: 1000
+      },
+
+      about: {
+        small_headline_about_us:"",
+        headline_about_us:"",
+        content_about_us:"",
+        link_company_profile:"",
+        counter_company: []
       }
     }
   },
   mounted() {
-      this.handleScroll();
+    this.axios.get(`https://api.digitechsltd.com/wp-json/wp/api/page/vue`).then((response) => {
+      this.about = response.data.data;
+    }).catch((error) => {
+      console.log(error);
+    });
   },
   created () {
     window.addEventListener('scroll', this.handleScroll);
@@ -115,27 +128,7 @@ export default {
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
-    handleScroll() {
-      document.addEventListener("DOMContentLoaded", () => {
-      function counter(id, start, end, duration) {
-        let obj = document.getElementById(id),
-        current = start,
-        range = end - start,
-        increment = end > start ? 1 : -1,
-        step = Math.abs(Math.floor(duration / range)),
-        timer = setInterval(() => {
-          current += increment;
-          obj.textContent = current;
-          if (current == end) {
-          clearInterval(timer);
-          }
-        }, step);
-      }
-      counter("count1", 0, 50, 3000);
-      counter("count2", 100, 1201, 1000);
-      counter("count3", 0, 60, 3000);
-      });
-    }
+
   }
 }
 </script>

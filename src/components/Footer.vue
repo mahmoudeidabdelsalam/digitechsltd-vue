@@ -3,9 +3,9 @@
     <nav class="navbar-dark">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-3 col-12"><a class="navbar-brand" href="#"><img alt="digitechsltd logo" src="../assets/logo.svg"/></a></div>
-          <div class="col-md-6 col-12"><p class="text-white mb-0 mt-2">Copyright Reserved @ DigiTechs Solutions Ltd. 2022</p></div>
-          <div class="col-md-3 col-12"><p><img src="../assets/phone.svg" alt="digitechsltd phone"><a class="btn btn-none text-white" href="tel:01066918833">+(20) 10 6691 88 33</a></p></div>
+          <div class="col-md-3 col-12"><a class="navbar-brand" href="#"><img alt="digitechsltd logo" :src="footer.logo_footer"/></a></div>
+          <div class="col-md-6 col-12"><p class="text-white mb-0 mt-2">{{ footer.copy_right }}</p></div>
+          <div class="col-md-3 col-12"><p><img src="../assets/phone.svg" alt="digitechsltd phone"><a class="btn btn-none text-white">+{{ footer.phone_number }}</a></p></div>
         </div>
       </div>
     </nav>
@@ -14,7 +14,24 @@
 
 <script>
 export default {
-  name: 'HeaderNav'
+  name: 'HeaderNav',
+  data () {
+    return {
+      footer: {
+        logo_footer: "",
+        copy_right: "",
+        phone_number: ""
+      }
+    }
+  },
+
+  mounted() {
+    this.axios.get(`https://api.digitechsltd.com/wp-json/wp/api/page/vue`).then((response) => {
+      this.footer = response.data.data;
+    }).catch((error) => {
+      console.log(error);
+    });
+  },
 }
 </script>
 

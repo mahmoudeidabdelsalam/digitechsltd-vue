@@ -14,7 +14,7 @@
               :begin="false" 
             >          
               <h3 class="font-size-tiny text-color-gray">
-               Digi-Heros
+               {{teams.small_headline_team}}
               </h3>
             </u-animate>            
           </u-animate-container>    
@@ -31,7 +31,7 @@
               :begin="false" 
             >          
               <h2 class="font-size-large text-white text-start">
-                OUR TEAM
+                {{teams.headline_team}}
               </h2>
             </u-animate>
             <u-animate
@@ -44,60 +44,23 @@
               :begin="false" 
               class="d-flex"
             >  
-            <p class="text-start font-size-medium ps-lg-5 text-white">Our mission is to provide high quilty products and customer service. We’ve built our company on this, and our team wants not only to make our business successful but also to ensure that your business will be successful as well. We value accountability, integrity, punctuality, and enjoyment.</p>
+            <p class="text-start font-size-medium ps-lg-5 text-white" v-html="teams.content_team"></p>
             </u-animate>            
           </u-animate-container>
         </div>
           
         <div class="slider-portfolio col-12">
-          <carousel :autoplay="true" :dots="false" :center="true" :loop="true" :items="3" v-if="isDisktop">
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">Mohamed Arafat</b> <br>
-                  <span class="text-white">Executive Manager</span>
-                </div>
-                <img src="../assets/folder/slides/slide-1.svg">
-              </div>
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">Hanan El-Sayed</b> <br>
-                  <span class="text-white">Business Development Manager</span>
-                </div>               
-                <img src="../assets/folder/slides/slide-2.svg">          
-              </div> 
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">Mirette Khaled</b> <br>
-                  <span class="text-white">Sales Manager</span>
-                </div>               
-                <img src="../assets/folder/slides/slide-3.svg">
-              </div>                                             
-          </carousel>
-
-          <carousel :autoplay="true" :dots="true" :loop="true" :items="1" v-if="isMobile">
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">Mohamed Arafat</b> <br>
-                  <span class="text-white">Executive Manager</span>
-                </div>
-                <img src="../assets/folder/slides/slide-1.svg">
-              </div>
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">Hanan El-Sayed</b> <br>
-                  <span class="text-white">Business Development Manager</span>
-                </div>               
-                <img src="../assets/folder/slides/slide-2.svg">          
-              </div> 
-              <div class="slide-item">
-                <div class="slide-item__headline text-start">
-                  <b class="font-size-medium mb-0 border-1 border-bottom text-white">Mirette Khaled</b> <br>
-                  <span class="text-white">Sales Manager</span>
-                </div>               
-                <img src="../assets/folder/slides/slide-3.svg">
-              </div>                                             
-          </carousel>
-
+          <vueper-slides
+            class="no-shadow"
+            :bullets="false"
+            :visible-slides="3"
+            :slide-ratio="1 / 3"
+            :gap="3"
+            :dragging-distance="70"
+            fixed-height="620px"
+            :breakpoints="{ 800: { visibleSlides: 1, bullets: true } }">
+            <vueper-slide v-for="(slide, i) in teams.list_team" :key="i" :title="slide.name_of_team" :content="slide.title_of_team" :image="slide.image_of_team" />
+          </vueper-slides>
 
         </div>       
       </div>
@@ -107,29 +70,32 @@
 
 <script>
 import {UAnimateContainer, UAnimate} from 'vue-wow'
-import carousel from 'vue-owl-carousel2'
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 
 export default {
   name: 'BlockTeam',
   components: {
     UAnimateContainer,
     UAnimate,
-    carousel
+    VueperSlides, 
+    VueperSlide    
   },
   data() {
     return {
-      isMobile: true,
-      isDisktop: true,
+      teams: {
+        small_headline_technology:"",
+        headline_technology:"",
+        content_technology:"",
+      }
     }
   },
   mounted() {
-    if(window.innerWidth > 991) {
-      this.isMobile = false;
-    }
-
-    if(window.innerWidth < 992) {
-      this.isDisktop = false;
-    }
+    this.axios.get(`https://api.digitechsltd.com/wp-json/wp/api/page/vue`).then((response) => {
+      this.teams = response.data.data;
+    }).catch((error) => {
+      console.log(error);
+    });
   },
  
   methods: {
@@ -175,5 +141,10 @@ export default {
 .slider-portfolio .center .slide-item .slide-item__number {
     margin-bottom: 0;
     margin-top: -120px;
+}
+
+.owl-theme .owl-nav [class*='owl-'] {
+    background-color: transparent !important;
+    font-size: 0 !important;
 }
 </style>

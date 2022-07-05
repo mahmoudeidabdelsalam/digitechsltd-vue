@@ -14,7 +14,7 @@
               :begin="false" 
             >          
               <h3 class="font-size-tiny text-color-gray">
-               WHAT WE DO ?
+               {{ services.small_headline_services}}
               </h3>
             </u-animate>
           </u-animate-container>    
@@ -31,7 +31,7 @@
               :begin="false" 
             >          
               <h2 class="font-size-large text-white text-start">
-                SERVICES
+                {{ services.headline_services}}
               </h2>
             </u-animate>
             <u-animate
@@ -44,43 +44,14 @@
               :begin="false" 
               class="d-flex"
             >  
-            <p class="text-start font-size-medium mb-5 text-white ps-lg-5">Our Services include Intelligent programming, Business Analysis, UI/UX Solutions, Website Development, Mobile Development and Social Media Management for your business.</p>
+            <p class="text-start font-size-medium mb-5 text-white ps-lg-5" v-html="services.content_services"></p>
             </u-animate>
           </u-animate-container>   
 
           <div class="counter d-flex flex-wrap justify-content-center">
-            <div class="col-md-4 col-6">
-              <h4 class="font-size-medium-bold text-white text-start mb-3">STRATEGY</h4>
-              <ul class="list-unstyled p-0 text-start">
-                <li class="font-size-tiny text-white">Digital Strategy</li>
-                <li class="font-size-tiny text-white">Content Creation</li>
-                <li class="font-size-tiny text-white">Brand Awarness</li>
-                <li class="font-size-tiny text-white">Data Analysis</li>
-                <li class="font-size-tiny text-white">Scoial Media Management</li>
-                <li class="font-size-tiny text-white">Digital Strategy</li>
-              </ul>
-            </div>
-            <div class="col-md-4 col-6">
-              <h4 class="font-size-medium-bold text-white text-start mb-3">CREATIVE & DESIGN</h4>
-              <ul class="list-unstyled p-0 text-start">
-                <li class="font-size-tiny text-white">User Experience</li>
-                <li class="font-size-tiny text-white">Web and Mobile UI</li>
-                <li class="font-size-tiny text-white">App Design</li>
-                <li class="font-size-tiny text-white">Branding and Identity</li>
-                <li class="font-size-tiny text-white">Wireframing & Prototyping</li>
-                <li class="font-size-tiny text-white">Social Media Designs</li>
-              </ul>
-            </div>
-            <div class="col-md-4 col-6">
-              <h4 class="font-size-medium-bold text-white text-start mb-3">DEVELOPMENT</h4>
-              <ul class="list-unstyled p-0 text-start">
-                <li class="font-size-tiny text-white">Web development</li>
-                <li class="font-size-tiny text-white">Responsive Development</li>
-                <li class="font-size-tiny text-white">Website maintenance</li>
-                <li class="font-size-tiny text-white">E-Commerce website</li>
-                <li class="font-size-tiny text-white">SEO</li>
-                <li class="font-size-tiny text-white">Mobile Application Development</li>
-              </ul>
+            <div class="col-md-4 col-6" v-for="(item, index) in services.items_services" :key="index">
+              <h4 class="font-size-medium-bold text-white text-start mb-3">{{ item.headline_item }}</h4>
+              <div v-html="item.list_items"></div>
             </div>
           </div>
 
@@ -110,11 +81,21 @@ export default {
         classes: 'slideOutUp',
         delay: 100,
         duration: 1000
+      },
+      services: {
+        small_headline_services: "",
+        headline_services: "",
+        content_services: "",
+        items_services: []
       }
     }
   },
   mounted() {
-
+    this.axios.get(`https://api.digitechsltd.com/wp-json/wp/api/page/vue`).then((response) => {
+      this.services = response.data.data;
+    }).catch((error) => {
+      console.log(error);
+    });
   },
  
   methods: {

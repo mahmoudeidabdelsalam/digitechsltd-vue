@@ -1,5 +1,5 @@
 <template>
-  <section class="hero page" id="top">
+  <section class="hero page" id="top" :style="{ backgroundImage: 'url(' + top.bg_top + ')' }">
     <div class="container">
       <div class="row justify-content-center align-items-center d-flex vh-100">
         <div class="col-md-7 col-12">
@@ -14,8 +14,7 @@
               :begin="false" 
             >          
               <h2>
-                Welcome to the Best <br/>
-                Digital & Technology House in Egypt.
+                {{top.head_top}}
               </h2>
             </u-animate>
             <u-animate
@@ -59,9 +58,21 @@ export default {
         classes: 'slideOutUp',
         delay: 100,
         duration: 1000
+      },
+      top: {
+        head_top: "",
+        bg_top:""
       }
     }
-  }
+  },
+
+  mounted() {
+    this.axios.get(`https://api.digitechsltd.com/wp-json/wp/api/page/vue`).then((response) => {
+      this.top = response.data.data;
+    }).catch((error) => {
+      console.log(error);
+    });
+  },
 }
 </script>
 
