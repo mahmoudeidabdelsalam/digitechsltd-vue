@@ -105,6 +105,10 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
+<style>
+section#services .col-6 p {
+    text-align: left;
+    color: #fff;
+    margin: 0;
+}
 </style>
