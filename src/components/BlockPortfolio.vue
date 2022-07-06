@@ -38,17 +38,22 @@
         </div>
           
         <div class="slider-portfolio col-12">
-          <vueper-slides
-            class="no-shadow"
-            :bullets="false"
-            :visible-slides="3"
-            :slide-ratio="1 / 3"
-            :gap="3"
-            :dragging-distance="70"
-            fixed-height="620px"
-            :breakpoints="{ 800: { visibleSlides: 1, bullets: true } }">
-            <vueper-slide v-for="(slide, i) in portfolio.list_projects" :key="i" :title="slide.name_of_project" :content="slide.technology_of_project" :image="slide.image_of_project" />
-          </vueper-slides>
+          <carousel
+          :perPageCustom="[[480, 1], [768, 3]]"
+          :navigationEnabled="true"
+          :paginationEnabled="false"
+          >
+            <slide v-for="(slide, i) in portfolio.list_projects" :key="i">
+              <div class="content">
+                <h3>{{slide.name_of_project}}</h3>
+                <p>{{slide.technology_of_project}}</p>                
+              </div>
+              <div class="image">
+                <span class="number">{{ addLeadingZeros(i+1, 2) }}</span>
+                <img :src="slide.image_of_project" :alt="slide.name_of_project">
+              </div>
+            </slide>
+          </carousel>
         </div>  
 
       </div>
@@ -57,17 +62,16 @@
 </template>
 
 <script>
-import {UAnimateContainer, UAnimate} from 'vue-wow'
-import { VueperSlides, VueperSlide } from 'vueperslides'
-import 'vueperslides/dist/vueperslides.css'
+import {UAnimateContainer, UAnimate} from 'vue-wow';
+import { Carousel, Slide } from 'vue-carousel';
 
 export default {
   name: 'BlockPortfolio',
   components: {
     UAnimateContainer,
     UAnimate,
-    VueperSlides, 
-    VueperSlide    
+    Carousel,
+    Slide
   },
   data() {
     return {
@@ -87,7 +91,9 @@ export default {
   },
  
   methods: {
-  
+    addLeadingZeros(num, totalLength) {
+      return String(num).padStart(totalLength, '0');
+    }
   }
 }
 </script>
@@ -97,26 +103,32 @@ export default {
     margin-top: 70px !important;
 }
 
-.slider-portfolio .vueperslide__content-wrapper {
-    background: #14161e;
-    height: 120px !important;
-    align-items: start !important;
-    position: absolute !important;
-    top: -120px !important;
-    width: 100%;    
+.VueCarousel-slide img {
+    max-width: 100%;
+    filter: grayscale(1);
+    cursor: pointer;
+    width: 100%;
 }
 
-.slider-portfolio .vueperslide__content-wrapper .vueperslide__title {
+.VueCarousel-slide img:hover {
+    filter: grayscale(0);
+}
+
+.VueCarousel-slide {
+    padding: 30px;
+}
+
+.VueCarousel-slide .content h3 {
     text-align: left;
     color: #fff;
     font-weight: 500;
     font-size: 24px;
-    line-height: 41px;
+    line-height: 28px;
     width: 200px;
     border-bottom: 1px solid #ccc;
 }
 
-.slider-portfolio .vueperslide__content-wrapper .vueperslide__content {
+.VueCarousel-slide .content p {
     text-align: left;
     width: 100%;
     font-weight: 300;
@@ -125,26 +137,60 @@ export default {
     color: rgba(255, 255, 255, 0.47);
 }
 
-.slider-portfolio .vueperslide {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 500px !important;
-    margin-top: 120px !important;
+.VueCarousel-slide .content {
+    min-height: 100px;
 }
 
-.slider-portfolio path {
+.VueCarousel-slide {
+    display: flex;
+    flex-flow: column;
+}
+
+.VueCarousel-slide:nth-child(even) .content {
+    order: 2;
+    margin-top: 20px;
+}
+
+.VueCarousel-slide:nth-child(even) {
+    margin-top: 180px;
+}
+
+.VueCarousel-slide:nth-child(even) .image .number {
+    order: 2;
+}
+
+.VueCarousel-slide .image .number {
+    font-weight: 500;
+    font-size: 70px;
+    line-height: 118px;
     color: #fff;
+    float: right;
+    margin-bottom: -60px;
+    position: relative;
+    margin-top: -60px;
+    margin-right: 10px;
+    text-shadow: 0 0 1px 1px #14161e;
+    z-index: 1;
 }
 
-@media (min-width: 800px) {
-  .slider-portfolio .vueperslide--visible:nth-of-type(2n+2) {
-      margin-top: 60px !important;
-  }
+.VueCarousel-slide .image {
+    display: flex;
+    flex-flow: column;
+    align-items: end;
+}
 
-  .slider-portfolio .vueperslide--visible:nth-of-type(2n+2) .vueperslide__content-wrapper {
-      top: auto !important;
-      bottom: -90px;
-  }
+.VueCarousel-navigation-button {
+    font-size: 0;
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+}
+
+.VueCarousel-navigation-next {
+    background-image: url('../assets/folder/arrow_back_right.svg');
+}
+
+.VueCarousel-navigation-prev {
+    background-image: url('../assets/folder/arrow_back_left.svg');
 }
 </style>

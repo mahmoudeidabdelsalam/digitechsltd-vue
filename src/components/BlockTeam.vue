@@ -48,21 +48,25 @@
             </u-animate>            
           </u-animate-container>
         </div>
-          
+        
         <div class="slider-portfolio col-12">
-          <vueper-slides
-            class="no-shadow"
-            :bullets="false"
-            :visible-slides="3"
-            :slide-ratio="1 / 3"
-            :gap="3"
-            :dragging-distance="70"
-            fixed-height="620px"
-            :breakpoints="{ 800: { visibleSlides: 1, bullets: true } }">
-            <vueper-slide v-for="(slide, i) in teams.list_team" :key="i" :title="slide.name_of_team" :content="slide.title_of_team" :image="slide.image_of_team" />
-          </vueper-slides>
-
-        </div>       
+          <carousel
+          :perPageCustom="[[480, 1], [768, 3]]"
+          :navigationEnabled="true"
+          :paginationEnabled="false"
+          >
+            <slide v-for="(slide, i) in teams.list_team" :key="i">
+              <div class="content">
+                <h3>{{slide.name_of_team}}</h3>
+                <p>{{slide.title_of_team}}</p>                
+              </div>
+              <div class="image">
+                <span class="number">{{ addLeadingZeros(i+1, 2) }}</span>
+                <img :src="slide.image_of_team" :alt="slide.name_of_team">
+              </div>
+            </slide>
+          </carousel>
+        </div>  
       </div>
     </div>
   </section>
@@ -70,16 +74,15 @@
 
 <script>
 import {UAnimateContainer, UAnimate} from 'vue-wow'
-import { VueperSlides, VueperSlide } from 'vueperslides'
-import 'vueperslides/dist/vueperslides.css'
+import { Carousel, Slide } from 'vue-carousel';
 
 export default {
   name: 'BlockTeam',
   components: {
     UAnimateContainer,
     UAnimate,
-    VueperSlides, 
-    VueperSlide    
+    Carousel,
+    Slide  
   },
   data() {
     return {
@@ -99,7 +102,9 @@ export default {
   },
  
   methods: {
-  
+    addLeadingZeros(num, totalLength) {
+      return String(num).padStart(totalLength, '0');
+    }  
   }
 }
 </script>

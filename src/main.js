@@ -19,6 +19,13 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 Vue.use(VueAxios, axios);
 
+// number animation
+import VueNumber from 'vue-number-animation';
+Vue.use(VueNumber);
+
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
+
 Vue.config.productionTip = false
 
 new Vue({

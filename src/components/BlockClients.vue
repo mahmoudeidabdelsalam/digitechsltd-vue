@@ -54,7 +54,9 @@
             :visible-slides="4"
             :gap="1"
             :dragging-distance="200"
-            :breakpoints="{ 800: { visibleSlides: 2, bullets: true } }">
+            arrows-outside
+            transition-speed="250"
+            :breakpoints="{ 800: { visibleSlides: 2} }">
             <vueper-slide v-for="(slide, i) in clients.logos_clients" :key="i" :image="slide.logo" />
           </vueper-slides>
 

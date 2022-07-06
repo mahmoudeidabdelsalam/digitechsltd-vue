@@ -49,7 +49,7 @@
           </u-animate-container>   
 
           <div class="counter d-flex flex-wrap justify-content-center">
-            <div class="col-md-4 col-6" v-for="(item, index) in services.items_services" :key="index">
+            <div class="col-md-4 col-12" v-for="(item, index) in services.items_services" :key="index">
               <h4 class="font-size-medium-bold text-white text-start mb-3">{{ item.headline_item }}</h4>
               <div v-html="item.list_items"></div>
             </div>
@@ -106,7 +106,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-section#services .col-6 p {
+section#services .col-12 p {
     text-align: left;
     color: #fff;
     margin: 0;

@@ -57,7 +57,6 @@
             <a :href="about.link_company_profile" target="_blank" download class="btn btn-outline-dark mt-5" v-animate-css.click="animationRequest">Company Profile</a>
             </u-animate>
           </u-animate-container>   
-
           <div class="counter w-100 mt-5">
             <u-animate-container>
             <u-animate
@@ -71,7 +70,15 @@
               class="d-flex w-100 justify-content-between"
             >  
             <div class="col-counter" v-for="counter in about.counter_company" :key="counter.number_counter">
-              <span class="number">+</span><span class="display-4 number">{{ counter.number_counter }}</span>
+              <number
+              ref="number1"
+              class="number"
+              :from="0"
+              :to=counter.number_counter
+              :format="theFormat"
+              :duration="5"
+              :delay="2"
+              easing="Back.easeOut"/>
               <span class="d-block text-center w-100">{{ counter.text_counter }}</span>
             </div>
             </u-animate>
@@ -92,6 +99,7 @@ export default {
     UAnimateContainer,
     UAnimate
   },
+
   data() {
     return {
       animationRequest:{
@@ -114,6 +122,7 @@ export default {
       }
     }
   },
+
   mounted() {
     this.axios.get(`https://api.digitechsltd.com/wp-json/wp/api/page/vue`).then((response) => {
       this.about = response.data.data;
@@ -121,14 +130,19 @@ export default {
       console.log(error);
     });
   },
+
   created () {
     window.addEventListener('scroll', this.handleScroll);
   },
+
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll);
   },
-  methods: {
 
+  methods: {
+    theFormat(number) {
+        return number.toFixed(0);
+    },
   }
 }
 </script>

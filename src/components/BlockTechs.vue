@@ -45,21 +45,19 @@
             <p class="text-start font-size-medium ps-lg-5" v-html="technologies.content_technology"></p>
             </u-animate>
           </u-animate-container>   
-
-            <u-animate-container class="logos w-100">
+            <u-animate-container class="w-100">
               <u-animate
                 name="fadeInUp"
-                delay="0s"
-                duration=".3s"
+                duration="0.3s"
                 :iteration="1"
-                :offset="0"
                 animateClass="animated"
                 :begin="false" 
-                class="col-logos"
-                v-for="(logo, i) in technologies.logos_technology" :key="i"
+                class="logos"
               > 
-              <img :src="logo.logo_technology"> 
-              <p>{{ logo.name_technology }}</p>
+              <div class="col-logos" v-for="(logo, i) in technologies.logos_technology" :key="i">
+                <img :src="logo.logo_technology"> 
+                <p>{{ logo.name_technology }}</p>
+              </div>
               </u-animate>                                                                                                                                                   
             </u-animate-container>  
         </div>
@@ -101,12 +99,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-section.logos {
+.logos {
     display: flex;
     flex-wrap: wrap;
 }
 
-section.logos .col-logos {
+.logos .col-logos {
     flex: 0 0 20%;
 }
 </style>

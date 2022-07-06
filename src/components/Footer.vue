@@ -41,4 +41,9 @@ footer {
     background: #13161E;
     padding: 18px 0;
 }
+
+footer p {
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+}
 </style>
