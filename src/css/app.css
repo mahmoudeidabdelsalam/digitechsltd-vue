@@ -332,6 +332,7 @@ section.page.bg-dark {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: #272727;
 }
 
 button:focus:not(:focus-visible) {

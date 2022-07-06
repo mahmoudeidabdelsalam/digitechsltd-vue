@@ -1,19 +1,5 @@
 <template>
   <div>
-    <div class="loading" v-if="loading">
-      <div class="sk-cube-grid">
-        <div class="sk-cube sk-cube1"></div>
-        <div class="sk-cube sk-cube2"></div>
-        <div class="sk-cube sk-cube3"></div>
-        <div class="sk-cube sk-cube4"></div>
-        <div class="sk-cube sk-cube5"></div>
-        <div class="sk-cube sk-cube6"></div>
-        <div class="sk-cube sk-cube7"></div>
-        <div class="sk-cube sk-cube8"></div>
-        <div class="sk-cube sk-cube9"></div>
-      </div>
-    </div>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-header">
       <div class="container">
         <a class="navbar-brand" href="#"><img alt="digitechsltd logo" :src="header.logo_vue"/></a>
@@ -68,14 +54,12 @@ export default {
         link_facebook: null,
         link_instagram: null
       },
-      loading: true
     }
   },
 
   mounted() {
     this.axios.get(`https://api.digitechsltd.com/wp-json/wp/api/page/vue`).then((response) => {
       this.header = response.data.data;
-      this.loading = false;
     }).catch((error) => {
       console.log(error);
     });

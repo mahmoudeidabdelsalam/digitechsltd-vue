@@ -7,6 +7,7 @@ import "bootstrap";
 import '@popperjs/core'; // Edit here
 import 'bootstrap/dist/js/bootstrap.bundle';
 import "bootstrap/dist/css/bootstrap.min.css";
+import "vue-snotify/styles/material.css";
 
 import VueWow from 'vue-wow'
 Vue.use(VueWow)
@@ -22,6 +23,10 @@ Vue.use(VueAxios, axios);
 // number animation
 import VueNumber from 'vue-number-animation';
 Vue.use(VueNumber);
+
+// Snotify
+import Snotify from "vue-snotify";
+Vue.use(Snotify);
 
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);

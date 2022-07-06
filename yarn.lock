@@ -7850,6 +7850,11 @@
     "owl.carousel" "^2.3.4"
     "style-loader" "^0.23.0"
 
+"vue-snotify@^3.2.1":
+  "integrity" "sha512-7kETtCAK3key/mDkz47FY/LuPzDGNwHHrYmS037JuVac2FW/9GTtoCNIrOp+SNbpMHeXFdLIDktkBK0IdPdHew=="
+  "resolved" "https://registry.npmjs.org/vue-snotify/-/vue-snotify-3.2.1.tgz"
+  "version" "3.2.1"
+
 "vue-style-loader@^4.1.0", "vue-style-loader@^4.1.3":
   "integrity" "sha512-sFuh0xfbtpRlKfm39ss/ikqs9AbKCoXZBpHeVZ8Tx650o0k0q/YCM7FRvigtxpACezfq6af+a7JeqVTWvncqDg=="
   "resolved" "https://registry.npmjs.org/vue-style-loader/-/vue-style-loader-4.1.3.tgz"
@@ -7878,7 +7883,7 @@
   dependencies:
     "vue" "^2.5.2"
 
-"vue@^2 || ^3.2.13", "vue@^2.5.17", "vue@^2.5.2", "vue@^2.6.14", "vue@^3.0.0 || ^2.0.0":
+"vue@^2 || ^3.2.13", "vue@^2.4.2", "vue@^2.5.17", "vue@^2.5.2", "vue@^2.6.14", "vue@^3.0.0 || ^2.0.0":
   "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
   "version" "2.6.14"

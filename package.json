@@ -19,6 +19,7 @@
     "vue-carousel": "^0.18.0",
     "vue-number-animation": "^1.1.2",
     "vue-owl-carousel2": "^2.0.7",
+    "vue-snotify": "^3.2.1",
     "vue-wow": "^1.2.0",
     "vueperslides": "^2.15.3"
   },
